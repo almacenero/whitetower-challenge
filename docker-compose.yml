@@ -10,3 +10,15 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: Admin1234!
+  
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    container_name: backend
+    volumes:
+      - "./backend:/app"
+      - "/app/node_modules"
+      - "/etc/localtime:/etc/localtime:ro"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
