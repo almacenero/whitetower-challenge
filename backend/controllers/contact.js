@@ -2,8 +2,7 @@ const Contact = require('../models/Contact')
 
 const findAllContacts = async () => {
     const response = await Contact.find()
-    return response
-      
+    return response    
 }
 
 const createAContact = async ({name, address, phoneNumber, email}) => {

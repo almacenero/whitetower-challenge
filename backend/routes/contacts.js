@@ -7,7 +7,6 @@ const {findAllContacts,
 
 const router = Router()
 
-
 router.get('/', async (req, res) => {
   try{
   const result = await findAllContacts()
