@@ -43,4 +43,14 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+router.delete('/:id', async (req, res) => {
+  try{
+    const response = await Contact.remove({_id: req.params.id})
+    res.send(response) 
+  }catch(error) {
+    console.log('Error ', error)
+    res.json({message: error})
+  }
+})
+
 module.exports = router
