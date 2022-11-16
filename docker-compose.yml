@@ -21,5 +21,16 @@ services:
       - "/etc/localtime:/etc/localtime:ro"
     environment:
       - CHOKIDAR_USEPOLLING=true
+  frontend:
+    build: ./frontend
+    ports:
+      - "4200:4200"
+    container_name: frontend
+    volumes:
+      - "./frontend:/app"
+      - "/app/node_modules"
+      - "/etc/localtime:/etc/localtime:ro"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
 volumes:
   db:
