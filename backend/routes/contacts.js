@@ -1,5 +1,4 @@
 const { Router } = require('express')
-const Contact = require('../models/Contact')
 const {findAllContacts, 
   createAContact, 
   findContactById,

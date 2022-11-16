@@ -23,7 +23,6 @@ const findContactById = async (id) => {
     return response
 }
 
-
 const deleteAContact = async (id) => {
     const response = await Contact.remove({_id: id})
     return response
@@ -47,6 +46,4 @@ module.exports = {
     findContactById,
     deleteAContact,
     updateAContact,
-    deleteAContact,
-    updateAContact
 }
