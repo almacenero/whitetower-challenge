@@ -7,9 +7,8 @@ services:
     restart: always
     ports:
       - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: Admin1234!
+    volumes:
+      - db:/data/db 
   
   backend:
     build: ./backend
@@ -22,3 +21,5 @@ services:
       - "/etc/localtime:/etc/localtime:ro"
     environment:
       - CHOKIDAR_USEPOLLING=true
+volumes:
+  db:
