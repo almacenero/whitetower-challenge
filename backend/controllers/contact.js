@@ -19,7 +19,7 @@ const createAContact = async ({name, address, phoneNumber, email}) => {
 }
 
 const findContactById = async (id) => {
-    const response = await Contact.findById(id)
+    const response = await Contact.findOne({_id: id})
     return response
 }
 
@@ -45,6 +45,8 @@ module.exports = {
     findAllContacts,
     createAContact,
     findContactById,
+    deleteAContact,
+    updateAContact,
     deleteAContact,
     updateAContact
 }
