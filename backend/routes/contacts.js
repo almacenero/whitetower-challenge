@@ -1,42 +1,38 @@
 const { Router } = require('express')
 const Contact = require('../models/Contact')
+const {findAllContacts, 
+  createAContact, 
+  findContactById,
+  deleteAContact,
+  updateAContact} = require('../controllers/contact')
 
 const router = Router()
 
 
 router.get('/', async (req, res) => {
   try{
-    const response = await Contact.find()
-    res.send(response) 
-  }catch(error) {
-    console.log('Error ', error)
-    res.json({message: error})
-  }
-  res.send('welcome white tower clients')
+  const result = await findAllContacts()
+  res.send(result)
+} catch(error) {
+  console.log('Error ', error)
+  res.json({message: error})
+}
 })
 
 router.post('/', async (req, res) => {
-    const contact =  new Contact({
-      name: req.body.name,
-      address: req.body.address,
-      phoneNumber: req.body.phoneNumber,
-      email:  req.body.email
-    })
-    try {
-    const response = await contact.save()
-    res.send(response) 
-  
-  } catch(error) {
-    console.log('Error ', error)
-    res.json({message: error})
-  }
-  
+  try{
+  const result = await createAContact(req.body)
+  res.send(result)
+} catch(error) {
+  console.log('Error ', error)
+  res.json({message: error})
+}
 })
 
 router.get('/:id', async (req, res) => {
   try{
-    const response = await Contact.findById(req.params.id)
-    res.send(response) 
+    const result = await findContactById(req.params.id)
+    res.send(result) 
   }catch(error) {
     console.log('Error ', error)
     res.json({message: error})
@@ -45,8 +41,18 @@ router.get('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try{
-    const response = await Contact.remove({_id: req.params.id})
-    res.send(response) 
+    const result = await deleteAContact(req.params.id)
+    res.send(result) 
+  }catch(error) {
+    console.log('Error ', error)
+    res.json({message: error})
+  }
+})
+
+router.patch('/:id', async (req, res) => {
+  try{
+    const result = await updateAContact(req.params.id, req.body)
+    res.send(result) 
   }catch(error) {
     console.log('Error ', error)
     res.json({message: error})
