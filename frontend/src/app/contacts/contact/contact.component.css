@@ -1,0 +1,10 @@
+.contactContainer {
+  margin: 10px;
+  padding: 10px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 5% 20% 20% 20% 20% 5% 5%;
+  grid-gap: 10px;
+}
