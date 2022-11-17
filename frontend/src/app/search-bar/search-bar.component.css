@@ -1,6 +1,17 @@
 .navigate {
   background-color: black;
   padding: 25px;
+  padding-left: 85px;
+  padding-right: 85px;
+}
+
+.container {
+  display: flex;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 5% 85% 10%;
+  grid-gap: 10px;
 }
 
 .searchBox {
@@ -15,4 +26,14 @@
   border-radius: 5px;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.iconContainer {
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+.inputSearchContainer {
+  width: 100%;
+  padding: 5px;
 }
