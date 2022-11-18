@@ -8,3 +8,12 @@
   grid-template-columns: 5% 20% 20% 20% 20% 5% 5%;
   grid-gap: 10px;
 }
+
+div {
+  color: gray;
+}
+
+.actionsContact {
+  text-decoration: underline;
+  cursor: pointer;
+}
