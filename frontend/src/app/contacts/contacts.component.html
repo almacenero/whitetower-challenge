@@ -1,11 +1,5 @@
 <div class="contactsContainer">
-  <div class="contactsCard">
-    <app-contact></app-contact>
-    <app-contact></app-contact>
-    <app-contact></app-contact>
-    <app-contact></app-contact>
-    <app-contact></app-contact>
-    <app-contact></app-contact>
-    <app-contact></app-contact>
+  <div class="contactsCard" *ngFor="let contact of contacts">
+    <app-contact [contact]="contact"></app-contact>
   </div>
 </div>

@@ -11,20 +11,25 @@
   </div>
   <div>
     <div>Name</div>
-    <div class="inputColor">Yasser Quintana</div>
+    <div *ngIf="!isEditing" class="inputColor">{{ contact.name }}</div>
+    <div *ngIf="isEditing" class="inputColor">Edit</div>
   </div>
   <div>
     <div>Address</div>
-    <div class="inputColor">La palma</div>
+    <div *ngIf="!isEditing" class="inputColor">{{ contact.address }}</div>
+    <div *ngIf="isEditing" class="inputColor">Edit</div>
   </div>
   <div>
     <div>Phone Number</div>
-    <div class="inputColor">0979019824</div>
+    <div *ngIf="!isEditing" class="inputColor">{{ contact.phoneNumber }}</div>
+    <div *ngIf="isEditing" class="inputColor">Edit</div>
   </div>
   <div>
     <div>Email</div>
-    <div class="inputColor">yasser@gail.com</div>
+    <div *ngIf="!isEditing" class="inputColor">{{ contact.email }}</div>
+    <div *ngIf="isEditing" class="inputColor">Edit</div>
   </div>
-  <div class="actionsContact">Edit</div>
-  <div class="actionsContact">Remove</div>
+  <div *ngIf="!isEditing" class="actionsContact" (click)="edit()">Edit</div>
+  <div *ngIf="isEditing" class="actionsContact" (click)="save()">Save</div>
+  <div class="actionsContact" (click)="remove()">Remove</div>
 </div>
