@@ -22,3 +22,11 @@ div {
   color: #707070;
   font-weight: bold;
 }
+
+.buttonContainer {
+  border: none;
+  background-color: inherit;
+  padding: 0px 0px;
+  display: inline-block;
+  color: red;
+}

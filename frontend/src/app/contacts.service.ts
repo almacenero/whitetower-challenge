@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import axios from 'axios';
+import { Contact } from './types/Contact';
 
 @Injectable({
   providedIn: 'root',
@@ -6,26 +8,38 @@ import { Injectable } from '@angular/core';
 export class ContactsService {
   constructor() {}
 
-  getContacts = () => {
-    return [
-      {
-        name: 'Yasser Quintana',
-        address: 'La palma',
-        phoneNumber: '097900000',
-        email: 'yasser@gmail.com',
-      },
-      {
-        name: 'Tomas Roncero',
-        address: 'Malaga',
-        phoneNumber: '87654444',
-        email: 'tomas@gmail.com',
-      },
-      {
-        name: 'Sandry Pico',
-        address: 'Pelieo',
-        phoneNumber: '556565656',
-        email: 'sandry@gmail.com',
-      },
-    ];
+  getContacts = async () => {
+    const api = 'http://localhost:3001/contacts';
+    try {
+      const data = await axios.get(api);
+      console.log('data--->', data);
+      return data.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  removeContact = async (contact: Contact) => {
+    console.log('xxxxxx', contact);
+    const api = `http://localhost:3001/contacts/${contact._id}`;
+    try {
+      const data = await axios.delete(api);
+      console.log('data--->', data);
+      // return data.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  editContact = async (contact: Contact) => {
+    console.log('xxxxxx', contact);
+    const api = `http://localhost:3001/contacts/${contact._id}`;
+    try {
+      const data = await axios.patch(api, contact);
+      console.log('data--->', data);
+      // return data.data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 }

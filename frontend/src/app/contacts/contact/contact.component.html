@@ -1,35 +1,87 @@
-<div
-  class="contactContainer wrapper"
-  [ngStyle]="{ border: '1px solid #dee1e5' }"
->
-  <div>
-    <img
-      class="w-10 h-10 rounded-full"
-      src="https://i.pravatar.cc/300"
-      alt="Rounded avatar"
-    />
+<form (ngSubmit)="save()">
+  <div
+    class="contactContainer wrapper"
+    [ngStyle]="{ border: '1px solid #dee1e5' }"
+  >
+    <div>
+      <img
+        class="w-10 h-10 rounded-full"
+        src="https://i.pravatar.cc/300"
+        alt="Rounded avatar"
+      />
+    </div>
+    <div>
+      <label for="name">Name</label>
+      <div *ngIf="!isEditing" class="inputColor">{{ contact.name }}</div>
+      <input
+        [ngStyle]="{ border: '1px solid #dee1e5' }"
+        *ngIf="isEditing"
+        class="inputColor form-control"
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="form.name"
+        required
+        #name="ngModel"
+      />
+      <!-- <div *ngIf="name.invalid" class="p-1 bg-red-300 text-red-800 Rounded">
+        Address is required
+      </div> -->
+    </div>
+    <div>
+      <label for="address">Address</label>
+      <div *ngIf="!isEditing" class="inputColor">{{ contact.address }}</div>
+      <input
+        [ngStyle]="{ border: '1px solid #dee1e5' }"
+        *ngIf="isEditing"
+        class="inputColor"
+        type="text"
+        id="address"
+        [(ngModel)]="form.address"
+        name="address"
+        #address="ngModel"
+        required
+      />
+    </div>
+    <div>
+      <label for="phone-number">Phone Number</label>
+      <div *ngIf="!isEditing" class="inputColor">{{ contact.phoneNumber }}</div>
+      <input
+        [ngStyle]="{ border: '1px solid #dee1e5' }"
+        *ngIf="isEditing"
+        class="inputColor"
+        type="text"
+        id="phone-number"
+        [(ngModel)]="form.phoneNumber"
+        name="phoneNumber"
+      />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <div *ngIf="!isEditing" class="inputColor">{{ contact.email }}</div>
+      <input
+        [ngStyle]="{ border: '1px solid #dee1e5' }"
+        *ngIf="isEditing"
+        class="inputColor"
+        type="email"
+        id="email"
+        [(ngModel)]="form.email"
+        name="email"
+        require
+      />
+    </div>
+    <div *ngIf="!isEditing" class="actionsContact" (click)="edit()">Edit</div>
+    <!-- <div *ngIf="isEditing" class="actionsContact" (click)="save()" name="Save">
+      Save
+    </div> -->
+    <button
+      [ngStyle]="{ border: '1px solid #dee1e5', padding: '0px', margin: '0px' }"
+      *ngIf="isEditing"
+      class="actionsContact buttonContainer"
+      type="submit"
+    >
+      Save
+    </button>
+    <div class="actionsContact" (click)="remove()">Remove</div>
   </div>
-  <div>
-    <div>Name</div>
-    <div *ngIf="!isEditing" class="inputColor">{{ contact.name }}</div>
-    <div *ngIf="isEditing" class="inputColor">Edit</div>
-  </div>
-  <div>
-    <div>Address</div>
-    <div *ngIf="!isEditing" class="inputColor">{{ contact.address }}</div>
-    <div *ngIf="isEditing" class="inputColor">Edit</div>
-  </div>
-  <div>
-    <div>Phone Number</div>
-    <div *ngIf="!isEditing" class="inputColor">{{ contact.phoneNumber }}</div>
-    <div *ngIf="isEditing" class="inputColor">Edit</div>
-  </div>
-  <div>
-    <div>Email</div>
-    <div *ngIf="!isEditing" class="inputColor">{{ contact.email }}</div>
-    <div *ngIf="isEditing" class="inputColor">Edit</div>
-  </div>
-  <div *ngIf="!isEditing" class="actionsContact" (click)="edit()">Edit</div>
-  <div *ngIf="isEditing" class="actionsContact" (click)="save()">Save</div>
-  <div class="actionsContact" (click)="remove()">Remove</div>
-</div>
+</form>

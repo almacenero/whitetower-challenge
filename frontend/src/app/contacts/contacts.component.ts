@@ -12,6 +12,11 @@ export class ContactsComponent {
   contacts: Contact[] = [];
 
   ngOnInit(): void {
-    this.contacts = this.contactsService.getContacts();
+    // this.contactsService.getContacts().then((data) => {
+    //   this.contacts = data;
+    // });
+    this.contactsService.getContacts().then((data) => {
+      this.contacts = data;
+    });
   }
 }

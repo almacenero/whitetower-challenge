@@ -38,6 +38,7 @@ router.get('/:id', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
+  console.log("el idssss", req.params.id)
   try{
     const result = await deleteAContact(req.params.id)
     res.send(result) 

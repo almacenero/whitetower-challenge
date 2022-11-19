@@ -1,5 +1,8 @@
 <div class="contactsContainer">
-  <div class="contactsCard" *ngFor="let contact of contacts">
-    <app-contact [contact]="contact"></app-contact>
+  <div *ngIf="contacts.length > 0">
+    <div class="contactsCard" *ngFor="let contact of contacts">
+      <app-contact [contact]="contact"></app-contact>
+    </div>
   </div>
+  <div *ngIf="contacts.length === 0">No contacts in list</div>
 </div>
