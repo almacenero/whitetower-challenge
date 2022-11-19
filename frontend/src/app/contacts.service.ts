@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { Contact } from './types/Contact';
+import { Filter } from './types/Filter';
 
 @Injectable({
   providedIn: 'root',
@@ -41,5 +42,26 @@ export class ContactsService {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  filterContact = (contacts: Contact[], filter: Filter) => {
+    if (filter.email) {
+      contacts = contacts.filter((contact) => contact.name === filter.name);
+    }
+    if (filter.email) {
+      contacts = contacts.filter((contact) => contact.email === filter.email);
+    }
+    if (filter.phoneNumber) {
+      contacts = contacts.filter(
+        (contact) => contact.phoneNumber === filter.phoneNumber
+      );
+    }
+    if (filter.address) {
+      contacts = contacts.filter(
+        (contact) => contact.address === filter.address
+      );
+    }
+
+    return contacts;
   };
 }

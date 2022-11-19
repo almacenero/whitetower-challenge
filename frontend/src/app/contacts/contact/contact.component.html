@@ -1,4 +1,4 @@
-<form (ngSubmit)="save()">
+<form (ngSubmit)="save()" class="formContainer">
   <div
     class="contactContainer wrapper"
     [ngStyle]="{ border: '1px solid #dee1e5' }"
@@ -71,11 +71,7 @@
       />
     </div>
     <div *ngIf="!isEditing" class="actionsContact" (click)="edit()">Edit</div>
-    <!-- <div *ngIf="isEditing" class="actionsContact" (click)="save()" name="Save">
-      Save
-    </div> -->
     <button
-      [ngStyle]="{ border: '1px solid #dee1e5', padding: '0px', margin: '0px' }"
       *ngIf="isEditing"
       class="actionsContact buttonContainer"
       type="submit"

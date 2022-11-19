@@ -10,7 +10,7 @@
 }
 .wrapper {
   display: grid;
-  grid-template-columns: 5% 85% 10%;
+  grid-template-columns: 10% 80% 10%;
   grid-gap: 10px;
 }
 
@@ -36,4 +36,9 @@
 .inputSearchContainer {
   width: 100%;
   padding: 5px;
+}
+
+.selecComponent {
+  width: 100px;
+  height: 100px;
 }
